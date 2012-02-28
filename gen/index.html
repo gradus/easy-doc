@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CoffeeCup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/images/bam.ico">
+    <link rel="apple-touch-icon" href="/images/bootstrap-apple-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/bootstrap-apple-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/bootstrap-apple-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">CoffeeCup docs</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="span8 github">
+      <h1>CoffeeCup &lt;☕/></h1>
+
+<h2>Markup as CoffeeScript</h2>
+
+<p>This is a clone of @mauricemach <a href="https://github.com/mauricemach/coffeekup">CoffeeCup</a>.</p>
+
+<p>I am renaming and trying to keep this project alive.</p>
+
+<p><a href="https://github.com/gradus/coffeecup">Fork CoffeeCup on Github</a>.</p>
+
+<p>CoffeeCup is a templating engine for <a href="http://nodejs.org">node.js</a> and browsers that lets you to write your HTML templates in 100% pure <a href="http://coffeescript.org">CoffeeScript</a>.</p>
+
+<p>It was created in celebration of <a href="http://whyday.org/">whyday</a>, as an application of the concept used in <a href="https://github.com/markaby/markaby">Markaby</a> ("Markup as Ruby", by Tim Fletcher and why the lucky stiff) to CoffeeScript.</p>
+
+<p>Here's what a template written for CoffeeCup looks like:</p>
+
+<div class="highlight"><pre lang="`">    doctype 5
+    html ->
+      head ->
+        meta charset: 'utf-8'
+        title "#{@title or 'Untitled'} | A completely plausible website"
+        meta(name: 'description', content: @description) if @description?
+
+<pre><code>    link rel: 'stylesheet', href: '/css/app.css'
+
+    style '''
+      body {font-family: sans-serif}
+      header, nav, section, footer {display: block}
+    '''
+
+    script src: '/js/jquery.js'
+
+    coffeescript -&gt;
+      $(document).ready -&gt;
+        alert 'Alerts suck!'
+  body -&gt;
+    header -&gt;
+      h1 @title or 'Untitled'
+
+      nav -&gt;
+        ul -&gt;
+          (li -&gt; a href: '/', -&gt; 'Home') unless @path is '/'
+          li -&gt; a href: '/chunky', -&gt; 'Bacon!'
+          switch @user.role
+            when 'owner', 'admin'
+              li -&gt; a href: '/admin', -&gt; 'Secret Stuff'
+            when 'vip'
+              li -&gt; a href: '/vip', -&gt; 'Exclusive Stuff'
+            else
+              li -&gt; a href: '/commoners', -&gt; 'Just Stuff'
+
+    div '#myid.myclass.anotherclass', style: 'position: fixed', -&gt;
+      p 'Divitis kills! Inline styling too.'
+
+    section -&gt;
+      # A helper function you built and included.
+      breadcrumb separator: '&gt;', clickable: yes
+
+      h2 "Let's count to 10:"
+      p i for i in [1..10]
+
+      # Another hypothetical helper.
+      form_to @post, -&gt;
+        textbox '#title', label: 'Title:'
+        textbox '#author', label: 'Author:'
+        submit 'Save'
+
+    footer -&gt;
+      # CoffeeScript comments. Not visible in the output document.
+      comment 'HTML comments.'
+      p 'Bye!'
+</code></pre>
+
+</pre></div>
+
+<p>Interactive demo at <a href="http://coffeekup.org">coffeekup.org</a>.</p>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap-transition.js"></script>
+    <script src="/javascripts/bootstrap-alert.js"></script>
+    <script src="/javascripts/bootstrap-modal.js"></script>
+    <script src="/javascripts/bootstrap-dropdown.js"></script>
+    <script src="/javascripts/bootstrap-scrollspy.js"></script>
+    <script src="/javascripts/bootstrap-tab.js"></script>
+    <script src="/javascripts/bootstrap-tooltip.js"></script>
+    <script src="/javascripts/bootstrap-popover.js"></script>
+    <script src="/javascripts/bootstrap-button.js"></script>
+    <script src="/javascripts/bootstrap-collapse.js"></script>
+    <script src="/javascripts/bootstrap-carousel.js"></script>
+    <script src="/javascripts/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

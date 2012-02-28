@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CoffeeCup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/images/bam.ico">
+    <link rel="apple-touch-icon" href="/images/bootstrap-apple-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/bootstrap-apple-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/bootstrap-apple-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">CoffeeCup docs</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="span8 github">
+      <h2>_why CoffeeCup?</h2>
+
+<ul>
+<li><p><strong>One language to rule them all</strong>. JavaScript is everywhere, thus so is CoffeeScript. Servers, browsers, even databases. If extending this to rendering logic and UI structure (server and client side) is desirable to you, CoffeeCup is your friend.</p></li>
+<li><p><strong>More specifically, one <em>outstanding</em> language</strong>. CoffeeScript is one hell of a clean, expressive, flexible and powerful language. It's hard to find such combination, especially if you need it to run in the browser too.</p></li>
+<li><p><strong>Not yet another specialized language to learn</strong>. Transferable knowledge FTW.</p></li>
+<li><p><strong>Embed your templates in CoffeeScript nicely</strong>. Templates are just functions, so they don't lose syntax highlighting and syntax checking when embedded in CoffeeScript apps.</p></li>
+<li><p><strong>Embed CoffeeScript in your templates nicely</strong>. In the same manner, you can write the contents of <code>&lt;script&gt;</code> blocks in CoffeeScript, and keep the highlighting. Perhaps more significantly, the CoffeeScript compiler doesn't have to be called just to convert these blocks to JS, as in other templating engines.</p></li>
+<li><p><strong>Extensive editor support</strong>. You benefit from the already existing list of excellent CoffeeScript <a href="https://github.com/jashkenas/coffee-script/wiki/Text-editor-plugins">text editor plugins</a>.</p></li>
+<li><p><strong>Client-server consistency</strong>. The same template language <em>and</em> implementation in node.js or the browser.</p></li>
+<li><p><strong>Easily extendable into a higher level "DSL"</strong>. Since all elements are just functions, it's very easy to define your own custom "tags", which will work and look the same as "native" ones.</p></li>
+<li><p><strong>HTML 5 ready</strong>. Boring legacy doctypes and elements also available.</p></li>
+<li><p><strong>Optional auto-escaping</strong>. You can also use the <code>h</code> helper on a case-by-case basis.</p></li>
+<li><p><strong>Optional formatting</strong>, with line breaks and indentation.</p></li>
+<li><p><strong>Pick your poison</strong>. Works with both CoffeeScript and JavaScript apps.</p></li>
+</ul>
+
+<h2>Why not?</h2>
+
+<p>CoffeeCup may not be your best choice in those cases:</p>
+
+<ul>
+<li><p>You're after the cleanest syntax possible, above all. In this regard a specialized language such as <a href="http://jade-lang.com">Jade</a> just can't be beaten.</p></li>
+<li><p>You use divs and/or classes for everything. While in CoffeeCup you can do <code>div '#id.class.class'</code>, specialized languages often have an even shorter syntax for that.</p></li>
+<li><p>You want CoffeeScript for rendering logic, but you'd rather stick with HTML for markup. Then you're looking for <a href="http://github.com/sstephenson/eco">Eco</a>.</p></li>
+<li><p>For your specific project/team/preferences, you think a limited and/or separate language for templating is actually beneficial.</p></li>
+</ul>
+
+<h2>Installing</h2>
+
+<p>Just grab <a href="http://nodejs.org/#download">node.js</a> and <a href="http://github.com/isaacs/npm">npm</a> and you're set:</p>
+
+<pre><code>npm install coffeecup
+</code></pre>
+
+<p>To get the <code>coffeecup</code> command, install it globally:</p>
+
+<pre><code>npm install coffeecup -g
+</code></pre>
+
+<p>Or to use the latest version:</p>
+
+<pre><code>git clone <a href='mailto:git@github.com'>git@github.com</a>:gradus/coffeecup.git &amp;&amp; cd coffeecup
+cake build
+npm link
+cd ~/myproject
+npm link coffeecup
+</code></pre>
+
+<h2>Using</h2>
+
+<pre><code>cc = require 'coffeecup'
+
+cc.render -&gt; h1 "You can feed me templates as functions."
+cc.render "h1 'Or strings. I am not too picky.'"
+</code></pre>
+
+<p>Defining variables:</p>
+
+<pre><code>template = -&gt;
+  h1 @title
+  form method: 'post', action: 'login', -&gt;
+    textbox id: 'username'
+    textbox id: 'password'
+    button @title
+
+helpers =
+  textbox: (attrs) -&gt;
+    attrs.type = 'text'
+    attrs.name = attrs.id
+    input attrs
+
+cc.render(template, title: 'Log In', hardcode: helpers)
+</code></pre>
+
+<p>Precompiling to functions:</p>
+
+<pre><code>template = ck.compile(template, locals: yes, hardcode: {zig: 'zag'})
+
+template(foo: 'bar', locals: {ping: 'pong'})
+</code></pre>
+
+<p>With <a href="http://expressjs.com">express</a>:</p>
+
+<pre><code>app.set 'view engine', 'coffee'
+app.register '.coffee', require('coffeecup').adapters.express
+
+app.get '/', (req, res) -&gt;
+  # Will render views/index.coffee:
+  res.render 'index', foo: 'bar'
+</code></pre>
+
+<p>With <a href="http://github.com/mauricemach/zappa">zappa</a>:</p>
+
+<pre><code>get '/': -&gt;
+  @franks = ['miller', 'oz', 'sinatra', 'zappa']
+  render 'index'
+
+view index: -&gt;
+  for name in @franks
+    a href: "<a href='http://en.wikipedia.org/wiki/Frank_#{name}'>http://en.wikipedia.org/wiki/Frank_#{name}</a>", -&gt; name
+</code></pre>
+
+<p>With <a href="https://github.com/kadirpekel/meryl/tree/master/examples/coffeekup-template">meryl</a>:</p>
+
+<pre><code>coffeekup = require 'coffeecup'
+
+meryl.get '/', (req, resp) -&gt;
+  people = ['bob', 'alice', 'meryl']
+  resp.render 'layout', content: 'index', context: {people: people}
+
+meryl.run
+  templateExt: '.coffee'
+  templateFunc: coffeecup.adapters.meryl
+</code></pre>
+
+<p>On the browser:</p>
+
+<pre><code>&lt;script src="template.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  $('body').append(templates.template({foo: 'bar'}));
+&lt;/script&gt;
+</code></pre>
+
+<p>This is one of many browser deployment possibilities, pre-compiling your template on the server to a standalone function. To see all serving suggestions, check out <a href="http://github.com/gradus/coffeecup/blob/master/examples/browser/regular/index.html">regular</a>, <a href="http://github.com/gradus/coffeecup/blob/master/examples/browser/decaf/index.html">decaf</a> and <a href="http://github.com/gradus/coffeecup/blob/master/examples/browser/creme/index.html">crème</a>.</p>
+
+<p>Command-line:</p>
+
+<pre><code>$ coffeecup -h
+
+Usage:
+  coffeecup [options] path/to/template.coffee
+
+      --js           compile template to js function
+  -n, --namespace    global object holding the templates (default: "templates")
+  -w, --watch        watch templates for changes, and recompile
+  -o, --output       set the directory for compiled html
+  -p, --print        print the compiled html to stdout
+  -f, --format       apply line breaks and indentation to html output
+  -u, --utils        add helper locals (currently only "render")
+  -v, --version      display CoffeeCup version
+  -h, --help         display this help message
+</code></pre>
+
+<p>See <a href="http://github.com/gradus/coffeekup/tree/master/examples">/examples</a> for complete versions (you have to run <code>cake build</code> first).</p>
+
+<p>Please note that even though all examples are given in CoffeeScript, you can also use their plain JavaScript counterparts just fine.</p>
+
+<h2>Resources</h2>
+
+<ul>
+<li><p><a href="https://github.com/gradus/coffeekup/blob/master/docs/reference.md">API reference</a></p></li>
+<li><p><a href="https://github.com/gradus/coffeecup/issues">Issues</a></p></li>
+<li><p><a href="https://github.com/mark-hahn/coffeekup-intro">A Beginners's Introduction to CoffeeCup</a></p></li>
+</ul>
+
+<h2>Tools</h2>
+
+<ul>
+<li><p><a href="https://github.com/brandonbloom/html2coffeekup">html2coffeekup</a> - Converts HTML to CoffeeCup templates.</p></li>
+<li><p><a href="https://github.com/colinta/htmlkup">htmlkup</a> - Another HTML converter, stdin/stdout based.</p></li>
+<li><p><a href="https://html2coffeecup.cloudfoundry.com">html2coffeecup-app</a> - html to CoffeeCup web app.</p></li>
+<li><p><a href="https://github.com/ludicast/ice">ice</a> - CoffeeCup and Eco in Rails (<a href="http://vimeo.com/25907220">screencast</a>).</p></li>
+<li><p><a href="https://github.com/khoomeister/coffee-world">coffee-world</a> - Tool to watch and compile HTML with CoffeeCup, CSS with coffee-css and JS with CoffeeScript.</p></li>
+<li><p><a href="https://github.com/twilson63/cupcake">cupcake</a> - Express app generator with CoffeeCup support.</p></li>
+</ul>
+
+<h2>Related projects</h2>
+
+<ul>
+<li><p><a href="https://github.com/aeosynth/ck">ck</a> - "a smaller, faster coffeekup": Alternative, barebones implementation.</p></li>
+<li><p><a href="https://github.com/satyr/ckup">ckup</a> - "Markup as Coco": Similar engine but for <a href="https://github.com/satyr/coco">Coco</a> ("Unfancy CoffeeScript").</p></li>
+<li><p><a href="https://github.com/sstephenson/eco">Eco</a> - "Embedded CoffeeScript templates": "EJS/ERB" for CoffeeScript.</p></li>
+<li><p><a href="https://github.com/Postmedia/timbits">timbits</a> - "Widget framework based on Express and CoffeeScript".</p></li>
+<li><p><a href="https://github.com/khoomeister/coffee-css">coffee-css</a> - "More CSS for CoffeeScript".</p></li>
+<li><p><a href="https://github.com/aeosynth/ccss">ccss</a> - "CoffeeScript CSS".</p></li>
+<li><p><a href="https://github.com/twilson63/iron-coffee">iron-coffee</a> - Flatiron and Coffee-Script Template.</p></li>
+</ul>
+
+<h2>Compatibility</h2>
+
+<p>Latest version tested with node 0.6.11 and CoffeeScript 1.2.0.</p>
+
+<h2>Special thanks</h2>
+
+<ul>
+<li><a href="https://github.com/jashkenas">Jeremy Ashkenas</a>, for the amazing CoffeeScript language.</li>
+<li><a href="Why_the_lucky_stiff">why the lucky stiff</a>, for the inspiration.</li>
+</ul>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap-transition.js"></script>
+    <script src="/javascripts/bootstrap-alert.js"></script>
+    <script src="/javascripts/bootstrap-modal.js"></script>
+    <script src="/javascripts/bootstrap-dropdown.js"></script>
+    <script src="/javascripts/bootstrap-scrollspy.js"></script>
+    <script src="/javascripts/bootstrap-tab.js"></script>
+    <script src="/javascripts/bootstrap-tooltip.js"></script>
+    <script src="/javascripts/bootstrap-popover.js"></script>
+    <script src="/javascripts/bootstrap-button.js"></script>
+    <script src="/javascripts/bootstrap-collapse.js"></script>
+    <script src="/javascripts/bootstrap-carousel.js"></script>
+    <script src="/javascripts/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

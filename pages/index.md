@@ -12,7 +12,7 @@ CoffeeCup is a templating engine for [node.js](http://nodejs.org) and browsers t
 It was created in celebration of [whyday](http://whyday.org/), as an application of the concept used in [Markaby](https://github.com/markaby/markaby) ("Markup as Ruby", by Tim Fletcher and why the lucky stiff) to CoffeeScript.
 
 Here's what a template written for CoffeeCup looks like:
-
+````
     doctype 5
     html ->
       head ->
@@ -68,6 +68,6 @@ Here's what a template written for CoffeeCup looks like:
           # CoffeeScript comments. Not visible in the output document.
           comment 'HTML comments.'
           p 'Bye!'
-
+```
 Interactive demo at [coffeekup.org](http://coffeekup.org).
 
