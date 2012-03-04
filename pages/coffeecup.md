@@ -160,17 +160,17 @@ Precompiling to functions:
 
 With [flatiron](http://flatironjs.com):
 
-  coffeecup = require 'coffeecup'
-  flatiron = require 'flatiron'
-  app = flatiron.app
-  app.use flatiron.plugins.http
+    coffeecup = require 'coffeecup'
+    flatiron = require 'flatiron'
+    app = flatiron.app
+    app.use flatiron.plugins.http
 
-  page = ''
-  require('fs').readFile('./views/index.coffee', 'utf8', (err,data) -> page += data)
+    page = ''
+    require('fs').readFile('./views/index.coffee', 'utf8', (err,data) -> page += data)
 
-  app.router.get '/', ->
-    @res.writeHead 200, 'Content-Type': 'text/html'
-    @res.end coffeecup.render(page)
+    app.router.get '/', ->
+      @res.writeHead 200, 'Content-Type': 'text/html'
+      @res.end coffeecup.render(page)
 
 With [express](http://expressjs.com):
 

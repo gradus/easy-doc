@@ -205,11 +205,18 @@ template(foo: 'bar', locals: {ping: 'pong'})
 
 <p>With <a href="http://flatironjs.com">flatiron</a>:</p>
 
-<p>coffeecup = require 'coffeecup'<br />  flatiron = require 'flatiron'<br />  app = flatiron.app<br />  app.use flatiron.plugins.http</p>
+<pre><code>coffeecup = require 'coffeecup'
+flatiron = require 'flatiron'
+app = flatiron.app
+app.use flatiron.plugins.http
 
-<p>page = ''<br />  require('fs').readFile('./views/index.coffee', 'utf8', (err,data) -> page += data)</p>
+page = ''
+require('fs').readFile('./views/index.coffee', 'utf8', (err,data) -&gt; page += data)
 
-<p>app.router.get '/', -><br />    @res.writeHead 200, 'Content-Type': 'text/html'<br />    @res.end coffeecup.render(page)</p>
+app.router.get '/', -&gt;
+  @res.writeHead 200, 'Content-Type': 'text/html'
+  @res.end coffeecup.render(page)
+</code></pre>
 
 <p>With <a href="http://expressjs.com">express</a>:</p>
 
