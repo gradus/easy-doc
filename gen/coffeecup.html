@@ -203,6 +203,14 @@ cc.render(template, title: 'Log In', hardcode: helpers)
 template(foo: 'bar', locals: {ping: 'pong'})
 </code></pre>
 
+<p>With <a href="http://flatironjs.com">flatiron</a>:</p>
+
+<p>coffeecup = require 'coffeecup'<br />  flatiron = require 'flatiron'<br />  app = flatiron.app<br />  app.use flatiron.plugins.http</p>
+
+<p>page = ''<br />  require('fs').readFile('./views/index.coffee', 'utf8', (err,data) -> page += data)</p>
+
+<p>app.router.get '/', -><br />    @res.writeHead 200, 'Content-Type': 'text/html'<br />    @res.end coffeecup.render(page)</p>
+
 <p>With <a href="http://expressjs.com">express</a>:</p>
 
 <pre><code>app.set 'view engine', 'coffee'
