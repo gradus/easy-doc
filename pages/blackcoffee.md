@@ -16,7 +16,7 @@ It includes a Cakefile that lets you build, and watch your coffeescript as you d
 Just hack away at app.coffee in the src directory and create your own
 pages.  [Skeleton CSS framework](http://www.getskeleton.com/) is included as well as a default skeleton page. 
 
-The default CoffeeCup templates for black-coffee are located in the pages directory.  2 pages are included as examples in addition to the skeleton page.
+The default CoffeeCup templates for black-coffee are located in the src/pages directory.  3 pages and a layout template are included as examples in addition to the skeleton page.
 
 Assets can be served from the 'assets' directory using [ecstatic](https://github.com/jesusabdullah/node-ecstatic).
 
@@ -32,6 +32,7 @@ This template uses the following to create nodejs applications
 * [Flatiron](http://flatironjs.org/)
 * [CoffeeScript v1.2.0](http://coffeescript.org/)
 * [CoffeeCup v0.3.5](https://github.com/gradus/coffeecup)
+* [Creamer](https://github.com/twilson63/creamer)
 * [node-ecstatic](https://github.com/jesusabdullah/node-ecstatic)
 * [Skeleton](http://www.getskeleton.com/)
 
