@@ -257,7 +257,11 @@ Please note that even though all examples are given in CoffeeScript, you can als
 
 - [htmlkup](https://github.com/colinta/htmlkup) - Another HTML converter, stdin/stdout based.
 
-- [html2coffeecup-app](https://html2coffeecup.cloudfoundry.com) - html to CoffeeCup web app.
+- [html2coffeecup-app](https://html2coffeecup.nodejitsu.com) - html to CoffeeCup web app.
+
+- [creamer](https://github.com/twilson63/creamer) - A flatiron plugin for coffeecup
+
+- [coffeecup-helpers](https://github.com/twilson63/coffeecup-helpers) - CoffeeCup Html Helpers
 
 - [ice](https://github.com/ludicast/ice) - CoffeeCup and Eco in Rails ([screencast](http://vimeo.com/25907220)).
 
