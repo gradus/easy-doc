@@ -52,7 +52,7 @@
 
 <h2>Markup as CoffeeScript</h2>
 
-<p>Clone of the original CoffeeKup by @mauricemach <a href="https://github.com/mauricemach/coffeekup">CoffeeCup</a>.</p>
+<p>Clone of CoffeeKup by @mauricemach <a href="https://github.com/mauricemach/coffeekup">CoffeeCup</a>.</p>
 
 <p><a href="https://github.com/gradus/coffeecup">Fork CoffeeCup on Github</a>.</p>
 
@@ -211,20 +211,7 @@ cc.render(template, title: 'Log In', hardcode: helpers)
 template(foo: 'bar', locals: {ping: 'pong'})
 </code></pre>
 
-<p>With <a href="http://flatironjs.com">flatiron</a>:</p>
-
-<pre><code>coffeecup = require 'coffeecup'
-flatiron = require 'flatiron'
-app = flatiron.app
-app.use flatiron.plugins.http
-
-page = ''
-require('fs').readFile('./views/index.coffee', 'utf8', (err,data) -&gt; page += data)
-
-app.router.get '/', -&gt;
-  @res.writeHead 200, 'Content-Type': 'text/html'
-  @res.end coffeecup.render(page)
-</code></pre>
+<p>With <a href="http://flatironjs.com">flatiron</a>:<br /><a href="https://github.com/gradus/coffeecup/tree/master/examples/flatiron">View Flatiron+Creamer Examples</a></p>
 
 <p>With <a href="http://expressjs.com">express</a>:</p>
 

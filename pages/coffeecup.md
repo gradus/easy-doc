@@ -1,7 +1,7 @@
 # CoffeeCup <☕/>
 ## Markup as CoffeeScript
 
-Clone of the original CoffeeKup by @mauricemach [CoffeeCup](https://github.com/mauricemach/coffeekup).
+Clone of CoffeeKup by @mauricemach [CoffeeCup](https://github.com/mauricemach/coffeekup).
 
 [Fork CoffeeCup on Github](https://github.com/gradus/coffeecup).
 
@@ -167,18 +167,7 @@ Precompiling to functions:
     template(foo: 'bar', locals: {ping: 'pong'})
 
 With [flatiron](http://flatironjs.com):
-
-    coffeecup = require 'coffeecup'
-    flatiron = require 'flatiron'
-    app = flatiron.app
-    app.use flatiron.plugins.http
-
-    page = ''
-    require('fs').readFile('./views/index.coffee', 'utf8', (err,data) -> page += data)
-
-    app.router.get '/', ->
-      @res.writeHead 200, 'Content-Type': 'text/html'
-      @res.end coffeecup.render(page)
+[View Flatiron+Creamer Examples](https://github.com/gradus/coffeecup/tree/master/examples/flatiron)
 
 With [express](http://expressjs.com):
 

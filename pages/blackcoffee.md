@@ -28,10 +28,10 @@ Assets can be served from the 'assets' directory using [ecstatic](https://github
 ## Technologies
 This template uses the following to create nodejs applications 
 
-* [Node v0.6.11](http://nodejs.org/)
+* [Node v0.6.14](http://nodejs.org/)
 * [Flatiron](http://flatironjs.org/)
-* [CoffeeScript v1.2.0](http://coffeescript.org/)
-* [CoffeeCup v0.3.5](https://github.com/gradus/coffeecup)
+* [CoffeeScript v1.3.1](http://coffeescript.org/)
+* [CoffeeCup Master](https://github.com/gradus/coffeecup)
 * [Creamer](https://github.com/twilson63/creamer)
 * [node-ecstatic](https://github.com/jesusabdullah/node-ecstatic)
 * [Skeleton](http://www.getskeleton.com/)
