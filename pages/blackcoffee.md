@@ -5,7 +5,7 @@
 ###based on [iron-coffee](https://github.com/twilson63/iron-coffee) 
 by [Tom Wilson](https://github.com/twilson63/)
 
-[Fork black-coffee on Github](https://github.com/gradus/black-coffee)
+###[Fork black-coffee on Github](https://github.com/gradus/black-coffee)
 
 ## About
 
@@ -53,6 +53,18 @@ If you want to make this your own project on github:
     git remote rm origin
     git remote add origin git@github.com:[your github accountname]/[project-name].git
 
+#### Dependencies
+
+    npm install .
+    npm install flatiron
+
+Black-Coffee currently requires the master version of director
+
+   cd node_modules/flatiron
+   npm uninstall director
+   npm install git://github.com/flatiron/director.git
+   cd ../../
+
 #####Build
 
     cake build
@@ -68,7 +80,7 @@ write tests, put them in the test directory and run
 
 ##### Run
 
-    node server.js
+    npm start
 
 ---
 ## Thanks

@@ -56,7 +56,7 @@
 
 <p>by <a href="https://github.com/twilson63/">Tom Wilson</a></p>
 
-<p><a href="https://github.com/gradus/black-coffee">Fork black-coffee on Github</a></p>
+<h3><a href="https://github.com/gradus/black-coffee">Fork black-coffee on Github</a></h3>
 
 <h2>About</h2>
 
@@ -109,6 +109,16 @@ npm install .
 git remote add origin <a href='mailto:git@github.com'>git@github.com</a>:[your github accountname]/[project-name].git
 </code></pre>
 
+<h4>Dependencies</h4>
+
+<pre><code>npm install .
+npm install flatiron
+</code></pre>
+
+<p>Black-Coffee currently requires the master version of director</p>
+
+<p>cd node_modules/flatiron<br />   npm uninstall director<br />   npm install git://github.com/flatiron/director.git<br />   cd ../../</p>
+
 <h5>Build</h5>
 
 <pre><code>cake build
@@ -128,7 +138,7 @@ git remote add origin <a href='mailto:git@github.com'>git@github.com</a>:[your g
 
 <h5>Run</h5>
 
-<pre><code>node server.js
+<pre><code>npm start
 </code></pre>
 
 <hr />
