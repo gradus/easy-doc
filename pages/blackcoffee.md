@@ -60,10 +60,10 @@ If you want to make this your own project on github:
 
 Black-Coffee currently requires the master version of director
 
-   cd node_modules/flatiron
-   npm uninstall director
-   npm install git://github.com/flatiron/director.git
-   cd ../../
+    cd node_modules/flatiron
+    npm uninstall director
+    npm install git://github.com/flatiron/director.git
+    cd ../../
 
 #####Build
 
